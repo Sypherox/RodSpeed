@@ -1,0 +1,14 @@
+name: RodSpeed
+version: 1.7
+main: sypherox.RodSpeed
+author: Sypherox
+
+commands:
+  rodspeed:
+    description: Change the rod speed with an multiplier
+    usage: /rodspeed <multiplier>
+    permission: rodspeed.use
+
+permissions:
+  rodspeed.use:
+    default: op
