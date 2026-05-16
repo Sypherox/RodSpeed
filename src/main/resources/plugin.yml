@@ -1,14 +1,15 @@
 name: RodSpeed
-version: 1.7
+version: 2.1
 main: sypherox.RodSpeed
 author: Sypherox
 
 commands:
   rodspeed:
-    description: Change the rod speed with an multiplier
-    usage: /rodspeed <multiplier>
+    description: Change the fishing rod speed with a multiplier
+    usage: /rodspeed <multiplier>  |  /rodspeed reload
     permission: rodspeed.use
 
 permissions:
   rodspeed.use:
+    description: Allows use of the /rodspeed command
     default: op

@@ -1,1 +1,86 @@
+# ──────────────────────────────────────────────
+#  RodSpeed Configuration
+#  GitHub: https://github.com/Sypherox/RodSpeed
+# ──────────────────────────────────────────────
+
+# The speed multiplier applied to the fishing rod projectile on launch.
+#
+# How it works:
+#   The velocity vector of the fishing hook is multiplied by this value
+#   the moment it is thrown. Values above 1.0 make it faster,
+#   values below 1.0 make it slower.
+#
+# Examples:
+#   0.5  → half speed (very slow, floats lazily)
+#   1.0  → default Minecraft rod speed (no change)
+#   1.5  → 50% faster than normal
+#   2.0  → double speed (noticeably snappy)
+#   3.0  → extremely fast, barely visible arc
+#
+# Accepted values: any positive decimal number (e.g. 0.1, 1.0, 2.5)
+# Note: Very high values (5.0+) may cause the hook to overshoot or clip through blocks.
+# This value is updated live via /rodspeed <multiplier>, no reload needed!
 rod-multiplier: 1.0
+
+# ──────────────────────────────────────────────
+
+# The name of the command players use in-game.
+#
+# Example: if set to "rs", the command becomes /rs <multiplier>
+#
+# IMPORTANT: Changing this requires a full server restart to take effect,
+# because commands are registered during plugin startup.
+# The plugin.yml must also be updated manually if you rename the command.
+command-name: rodspeed
+
+# ──────────────────────────────────────────────
+
+# The permission node required to use the /rodspeed command.
+#
+# You can set this to any string, e.g. "admin.rodspeed" or "myplugin.rod"
+# Players/groups must have this permission assigned (via LuckPerms, etc.)
+# to be able to run the command.
+#
+# Default: rodspeed.use (also defined in plugin.yml with default: op)
+# Changes to this value take effect after /rodspeed reload.
+permission: rodspeed.use
+
+# ──────────────────────────────────────────────
+# Messages
+# ──────────────────────────────────────────────
+#
+# All messages support Minecraft color codes using the & symbol.
+# Color code reference:
+#   &0 Black    &1 Dark Blue   &2 Dark Green  &3 Dark Aqua
+#   &4 Dark Red &5 Dark Purple &6 Gold        &7 Gray
+#   &8 Dark Gray &9 Blue       &a Green       &b Aqua
+#   &c Red      &d Light Purple &e Yellow     &f White
+#
+# Formatting codes:
+#   &l Bold   &o Italic   &n Underline   &m Strikethrough   &r Reset
+#
+# Available placeholders (only where noted):
+#   {cmd}   → replaced with the current command name (see command-name above)
+#   {value} → replaced with the multiplier value that was just set
+#
+messages:
+
+  # Shown when a player runs the command without the required permission.
+  # No placeholders available.
+  no-permission: "&cYou don't have permission to use this command."
+
+  # Shown when the command is used incorrectly (wrong number of arguments).
+  # Placeholder: {cmd} → the command name
+  usage: "&cUsage: /{cmd} <multiplier>  |  /{cmd} reload"
+
+  # Shown when the multiplier is successfully changed.
+  # Placeholder: {value} → the new multiplier value
+  set: "&aRod multiplier set to &e{value}&a."
+
+  # Shown when the player provides a non-numeric argument (e.g. /rodspeed abc).
+  # No placeholders available.
+  invalid-number: "&cInvalid number. Please provide a valid decimal (e.g. 1.5)."
+
+  # Shown when /rodspeed reload is executed successfully.
+  # No placeholders available.
+  reloaded: "&aRodSpeed config reloaded successfully."

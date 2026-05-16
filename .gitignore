@@ -19,3 +19,5 @@ Thumbs.db
 
 # Maven
 dependency-reduced-pom.xml
+*.jar
+!*-sources.jar
